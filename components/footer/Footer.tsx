@@ -34,7 +34,12 @@ const Footer = () => {
                 </Link>
               </div>
               <div className="w-[224px] flex flex-col gap-[20px]">
-                <h2 className="text-sm font-bold text-footer-heading">Info</h2>
+                <Link
+                  href="/"
+                  className="text-sm font-bold text-footer-heading"
+                >
+                  Info
+                </Link>
                 <Link href="" className="footer-font">
                   Insurance Details
                 </Link>
@@ -49,9 +54,12 @@ const Footer = () => {
                 </Link>
               </div>
               <div className="w-[224px] flex flex-col gap-[20px]">
-                <h2 className="text-sm font-bold text-footer-heading">
+                <Link
+                  href="/"
+                  className="text-sm font-bold text-footer-heading"
+                >
                   Help Centre
-                </h2>
+                </Link>
                 <Link href="" className="footer-font">
                   FAQ
                 </Link>
@@ -63,9 +71,12 @@ const Footer = () => {
                 </Link>
               </div>
               <div className="w-[224px] flex flex-col gap-[20px]">
-                <h2 className="text-sm font-bold text-footer-heading">
+                <Link
+                  href="/"
+                  className="text-sm font-bold text-footer-heading"
+                >
                   About us
-                </h2>
+                </Link>
                 <Link href="" className="footer-font">
                   About Uoto
                 </Link>
@@ -74,7 +85,12 @@ const Footer = () => {
                 </Link>
               </div>
               <div className="w-[224px] flex flex-col gap-[20px]">
-                <h2 className="text-sm font-bold text-footer-heading">News</h2>
+                <Link
+                  href="/"
+                  className="text-sm font-bold text-footer-heading"
+                >
+                  News
+                </Link>
                 <Link href="" className="footer-font">
                   News letter
                 </Link>
