@@ -12,12 +12,13 @@ const Navbar = () => {
           <div>
             <Image src={uotoLog} width={97.63} height={32} alt="uotolog" />
           </div>
-          <div className="flex justify-center items-center w-[204px] h-[50px] gap-[54px]">
+          <div className="flex justify-center items-center h-[50px] gap-[54px]">
             <div className="w-[68px] h-[20px]  flex justify-center items-center">
               <p className="font-[500] text-[14px] leading-[20px] underline text-red-fontcolor">
                 Rent a car
               </p>
             </div>
+
             <div className="flex justify-center items-center gap-3 ">
               <Image src={menuIcon} width={24} height={24} alt="menuIcon" />
               <Image src={personIcon} width={34} height={34} alt="personicon" />

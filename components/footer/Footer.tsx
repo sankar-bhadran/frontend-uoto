@@ -8,11 +8,11 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <div className="contianer h-[505px] w-[100%]">
+      <div className="contianer h-[505px] w-[100%] ">
         <div className="contianer h-[113px]  w-[100%]   pt-[112px] flex justify-center ">
           <div className="contianer h-[392px] w-[1280px]">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-[40px] pt-[112px] pb-[112px] ">
-              <div className="w-[224px] flex flex-col gap-[16px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-[40px] pt-[112px] pb-[112px]  mobileview:p-6 mobileview:pt-8 ">
+              <div className=" flex flex-col gap-[16px]">
                 <Image src={uotoLog} width={97.63} height={32} alt="uotolog" />
                 <Link href="" className="flex items-center gap-[8px]">
                   <Image
@@ -33,7 +33,7 @@ const Footer = () => {
                   Instagram
                 </Link>
               </div>
-              <div className="w-[224px] flex flex-col gap-[20px]">
+              <div className=" flex flex-col gap-[20px]">
                 <Link
                   href="/"
                   className="text-sm font-bold text-footer-heading"
@@ -53,7 +53,7 @@ const Footer = () => {
                   Safety Information
                 </Link>
               </div>
-              <div className="w-[224px] flex flex-col gap-[20px]">
+              <div className=" flex flex-col gap-[20px]">
                 <Link
                   href="/"
                   className="text-sm font-bold text-footer-heading"
@@ -70,7 +70,7 @@ const Footer = () => {
                   Report an Issue
                 </Link>
               </div>
-              <div className="w-[224px] flex flex-col gap-[20px]">
+              <div className=" flex flex-col gap-[20px]">
                 <Link
                   href="/"
                   className="text-sm font-bold text-footer-heading"
@@ -84,7 +84,7 @@ const Footer = () => {
                   The Team
                 </Link>
               </div>
-              <div className="w-[224px] flex flex-col gap-[20px]">
+              <div className=" flex flex-col gap-[20px] ">
                 <Link
                   href="/"
                   className="text-sm font-bold text-footer-heading"

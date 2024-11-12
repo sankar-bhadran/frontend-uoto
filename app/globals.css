@@ -11,3 +11,33 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.ant-form-item-control-input {
+  .ant-input {
+    height: 42px;
+    border-radius: 16px;
+    border: 1px solid "#D1D5DB";
+    padding: 9px, 13px, 9px, 13px;
+    width: 100%;
+    &:hover :focus {
+      border: 1px solid #d1d5db !important;
+    }
+  }
+
+  .ant-btn {
+    height: 48px;
+    border-radius: 48px;
+    padding: 12px, 24px, 12px, 24px;
+    background-color: #e71c3a;
+    width: 100%;
+    &:hover {
+      background-color: #e71c3a !important;
+    }
+  }
+}
+
+.ant-form-item .ant-form-item-label > label {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
