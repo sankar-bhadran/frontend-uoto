@@ -19,8 +19,12 @@
     border: 1px solid "#D1D5DB";
     padding: 9px, 13px, 9px, 13px;
     width: 100%;
-    &:hover :focus {
+    &:hover {
       border: 1px solid #d1d5db !important;
+    }
+    &:focus {
+      border-color: 1px solid #e71c3a !important;
+      outline: none;
     }
   }
 

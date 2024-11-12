@@ -1,20 +1,19 @@
 "use client";
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import faceBookSecongIcon from "../icons/Facebook.svg";
 import googleIcon from "../icons/Google.svg";
 import twitterIcon from "../icons/Twitter.svg";
 import { Form, Input } from "antd";
-
-const Login = () => {
+const Signup = () => {
   const [form] = Form.useForm();
   return (
     <>
       <div className="container mx-auto ">
         <div className="container max-w-[800px] w-[100%]  px-0 py-[51px]  mx-auto mt-[60px] rounded-2xl flex flex-col justify-center items-center gap-[64px] p-[64px] shadow-loginbox-shadow background-color mobileview:gap-[30px]">
           <div className="text-center flex flex-col gap-[20px]">
-            <h1 className="text-5xl font-semibold">Login</h1>
+            <h1 className="text-5xl font-semibold">Sign up</h1>
             <span className="text-sm font-normal">Welcome to Uoto</span>
           </div>
           <div className="flex flex-col gap-[24px] w-[483px] mobileview:w-[100%] lg:w-[483px] md:w-[483px] ">
@@ -87,7 +86,7 @@ const Login = () => {
               </Form>
               <span className="text-center flex justify-center gap-1 text-base">
                 <h2 className="font-normal">New user?</h2>
-                <Link href="/" className="font-medium">
+                <Link href="/" className="font-medium ">
                   Create an account
                 </Link>
               </span>
@@ -99,4 +98,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
