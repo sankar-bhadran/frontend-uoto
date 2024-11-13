@@ -12,7 +12,7 @@ const Login = () => {
   return (
     <>
       <div className="container mx-auto ">
-        <div className="container max-w-[800px] w-[100%]  px-0 py-[51px]  mx-auto mt-[60px] rounded-2xl flex flex-col justify-center items-center gap-[30px] p-[64px] shadow-loginbox-shadow background-color ">
+        <div className="max-w-[800px] w-[100%]  px-0 py-[51px]  mx-auto mt-[60px] rounded-2xl flex flex-col justify-center items-center gap-[30px] p-[64px] shadow-loginbox-shadow background-color ">
           <div className="text-center flex flex-col gap-[20px]">
             <h1 className="text-5xl font-semibold">Login</h1>
             <span className="text-sm font-normal">Welcome to Uoto</span>
@@ -21,7 +21,7 @@ const Login = () => {
             <div className="flex flex-col gap-[10px] items-center">
               <Link
                 href=""
-                className="flex justify-between items-center w-[100%] pt-[12px] pr-[24px] pb-[12px] pl-[24px] sm:gap-[10px] gap-5 sm:justify-evenly"
+                className="flex justify-start items-center w-[100%] pt-[12px] pr-[24px] pb-[12px] pl-[24px] sm:gap-[10px] gap-6 sm:justify-evenly"
               >
                 <Image
                   src={faceBookSecongIcon}
@@ -38,7 +38,7 @@ const Login = () => {
               </Link>
               <Link
                 href=""
-                className="flex justify-between items-center w-[100%] pt-[12px] pr-[24px] pb-[12px] pl-[24px] sm:gap-[10px] gap-3 sm:justify-evenly"
+                className="flex justify-start items-center w-[100%] pt-[12px] pr-[24px] pb-[12px] pl-[24px] sm:gap-[10px] gap-7 sm:justify-evenly"
               >
                 <Image
                   src={googleIcon}
@@ -53,7 +53,7 @@ const Login = () => {
               </Link>
               <Link
                 href=""
-                className="flex justify-between items-center w-[100%] pt-[12px] pr-[24px] pb-[12px] pl-[24px] sm:gap-[10px] gap-12 sm:justify-evenly"
+                className="flex justify-start items-center w-[100%] pt-[12px] pr-[24px] pb-[12px] pl-[24px] sm:gap-[10px] gap-7 sm:justify-evenly"
               >
                 <Image
                   src={twitterIcon}
