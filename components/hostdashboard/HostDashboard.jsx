@@ -1,49 +1,29 @@
-import React from "react";
+"use client";
 import ProfileCard from "../../components/profilecard/ProfileCard";
+import HostListingCard from "../../components/hostlistingcard/HostListingCard";
+import ReviewComponent from "../../components/review/Reviews";
+import BookingHistoryComponent from "../../components/bookinghistory/BookingHistory";
 
 const HostDashboard = () => {
   return (
     <>
       <div className="container ">
         <div className="container max-w-[80%] px-0 py-[51px] mx-auto mt-[60px]">
-          <div className="grid  grid-cols-[1fr,2fr] gap-[50px]">
-            <div className="">
-              <ProfileCard />
-              <div className="bg-red-400">
-                <h1>sdfsf</h1>
+          <div className="grid  grid-cols-[1.2fr,2fr] gap-[50px]">
+            <div className="flex flex-col gap-9">
+              <div className="rounded-[24px] border-[1px] border-[#E5E7EB] ">
+                <ProfileCard />
+              </div>
+              <div className="rounded-[24px] border-[1px] border-[#E5E7EB]">
+                <BookingHistoryComponent />
               </div>
             </div>
-            <div className="p-6 ">
-              <h2>My listings</h2>
-              <div className="grid grid-cols-2 gap-6 items-center p-7">
-                <div>
-                  <div className="w-[90%] h-[250px] rounded-lg bg-[#D1D5DB]"></div>
-                  <div className="p-2">
-                    <h2>KONA Electric</h2>
-                    <h5>$101 /day</h5>
-                  </div>
-                </div>
-                <div>
-                  <div className="w-[90%] h-[250px] rounded-lg bg-[#D1D5DB]"></div>
-                  <div className="p-2">
-                    <h2>KONA Electric</h2>
-                    <h5>$101 /day</h5>
-                  </div>
-                </div>
-                <div>
-                  <div className="w-[90%] h-[250px] rounded-lg bg-[#D1D5DB]"></div>
-                  <div className="p-2">
-                    <h2>KONA Electric</h2>
-                    <h5>$101 /day</h5>
-                  </div>
-                </div>
-                <div>
-                  <div className="w-[90%] h-[250px] rounded-lg bg-[#D1D5DB]"></div>
-                  <div className="p-2">
-                    <h2>KONA Electric</h2>
-                    <h5>$101 /day</h5>
-                  </div>
-                </div>
+            <div className=" flex flex-col gap-7">
+              <div className="rounded-[24px] border-[1px] border-[#E5E7EB] p-6">
+                <HostListingCard />
+              </div>
+              <div className="rounded-[24px] border-[1px] border-[#E5E7EB]">
+                <ReviewComponent />
               </div>
             </div>
           </div>
