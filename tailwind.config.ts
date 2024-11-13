@@ -14,6 +14,9 @@ export default {
         "background-color": "rgba(255, 255, 255, 0.5)",
         "footer-heading": "#1F2937",
         "footer-color": "#4B5563",
+        "primarytext-color": "#111827",
+        "secondarytext-color": "#374151",
+        "Tertiarytext-color": "#6B7280",
       },
       boxShadow: {
         "custom-shadow": " 0px 4px 4px 0px rgba(0, 0, 0, 0.15)",

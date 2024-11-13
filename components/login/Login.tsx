@@ -12,16 +12,16 @@ const Login = () => {
   return (
     <>
       <div className="container mx-auto ">
-        <div className="container max-w-[800px] w-[100%]  px-0 py-[51px]  mx-auto mt-[60px] rounded-2xl flex flex-col justify-center items-center gap-[64px] p-[64px] shadow-loginbox-shadow background-color mobileview:gap-[30px]">
+        <div className="container max-w-[800px] w-[100%]  px-0 py-[51px]  mx-auto mt-[60px] rounded-2xl flex flex-col justify-center items-center gap-[30px] p-[64px] shadow-loginbox-shadow background-color ">
           <div className="text-center flex flex-col gap-[20px]">
             <h1 className="text-5xl font-semibold">Login</h1>
             <span className="text-sm font-normal">Welcome to Uoto</span>
           </div>
-          <div className="flex flex-col gap-[24px] w-[483px] mobileview:w-[100%] lg:w-[483px] md:w-[483px] ">
+          <div className="flex flex-col gap-[24px] w-[95%]  sm:w-[70%]">
             <div className="flex flex-col gap-[10px] items-center">
               <Link
                 href=""
-                className="flex justify-evenly items-center w-[100%] pt-[12px] pr-[24px] pb-[12px] pl-[24px] gap-[109px] mobileview:gap-[10px]"
+                className="flex justify-between items-center w-[100%] pt-[12px] pr-[24px] pb-[12px] pl-[24px] sm:gap-[10px] gap-5 sm:justify-evenly"
               >
                 <Image
                   src={faceBookSecongIcon}
@@ -32,11 +32,13 @@ const Login = () => {
                 <h2 className="text-base font-medium ">
                   Continue with Facebook
                 </h2>
-                <div></div>
+                <div className="hidden bg-red-500 sm:block">
+                  <h1></h1>
+                </div>
               </Link>
               <Link
                 href=""
-                className="flex justify-evenly items-center w-[100%] pt-[12px] pr-[24px] pb-[12px] pl-[24px] gap-[109px] mobileview:gap-[10px]"
+                className="flex justify-between items-center w-[100%] pt-[12px] pr-[24px] pb-[12px] pl-[24px] sm:gap-[10px] gap-3 sm:justify-evenly"
               >
                 <Image
                   src={googleIcon}
@@ -45,11 +47,13 @@ const Login = () => {
                   alt="menuIcon"
                 />
                 <h2 className="text-base font-medium"> Continue with Google</h2>
-                <div></div>
+                <div className="hidden bg-red-500 sm:block">
+                  <h1></h1>
+                </div>
               </Link>
               <Link
                 href=""
-                className="flex justify-evenly items-center w-[100%] pt-[12px] pr-[24px] pb-[12px] pl-[24px] gap-[109px] mobileview:gap-[10px]"
+                className="flex justify-between items-center w-[100%] pt-[12px] pr-[24px] pb-[12px] pl-[24px] sm:gap-[10px] gap-12 sm:justify-evenly"
               >
                 <Image
                   src={twitterIcon}
@@ -58,7 +62,9 @@ const Login = () => {
                   alt="menuIcon"
                 />
                 <h2 className="text-base font-medium">Continue with Twitter</h2>
-                <div></div>
+                <div className="hidden bg-red-500 sm:block">
+                  <h1></h1>
+                </div>
               </Link>
             </div>
             <div className="text-center text-base font-medium">OR</div>

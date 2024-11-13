@@ -33,20 +33,29 @@ const BookingHistory = () => {
                   />
                 </div>
                 <div className="flex justify-between gap-12">
-                  <div>
-                    <h1>Kona Electric</h1>
-                    <p>12/03/2024 - 17/03/2024</p>
-                    <p>5 days</p>
+                  <div className="flex flex-col gap-2">
+                    <h1 className="text-[18px] leading-[18px] font-medium ">
+                      Kona Electric
+                    </h1>
+                    <p className="text-xs font-normal	text-[#6B7280]">
+                      12/03/2024 - 17/03/2024
+                    </p>
+                    <p className="text-xs font-normal	text-[#6B7280]">5 days</p>
                   </div>
                   <div>
-                    <p>$99 /day</p>
+                    <p className="font-bold text-sm text-[#14B8A6]">
+                      $99
+                      <span className="text-[14px] leading-[14px] font-normal text-[#6B7280]">
+                        /day
+                      </span>
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           ))}
-        <div className="flex justify-center">
-          <button className=" w-[30%] pt-[13px] pr-[25px] pb-[13px] pl-[23px] text-nowrap border-[#D1D5DB] rounded-[56px] border-2 ">
+        <div className="flex justify-center ">
+          <button className=" w-[30%] pt-[13px] pr-[25px] pb-[13px] pl-[23px] text-nowrap border-[#D1D5DB] rounded-[56px] border-2 text-base font-medium text-[#374151]">
             See more
           </button>
         </div>

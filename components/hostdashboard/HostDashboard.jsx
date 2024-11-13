@@ -11,7 +11,7 @@ const HostDashboard = () => {
         <div className="container max-w-[80%] px-0 py-[51px] mx-auto mt-[60px]">
           <div className="grid  grid-cols-[1.2fr,2fr] gap-[50px]">
             <div className="flex flex-col gap-9">
-              <div className="rounded-[24px] border-[1px] border-[#E5E7EB] ">
+              <div className="rounded-[24px] border-[1px] border-[#E5E7EB]">
                 <ProfileCard />
               </div>
               <div className="rounded-[24px] border-[1px] border-[#E5E7EB]">
@@ -19,9 +19,7 @@ const HostDashboard = () => {
               </div>
             </div>
             <div className=" flex flex-col gap-7">
-              <div className="rounded-[24px] border-[1px] border-[#E5E7EB] p-6 bg-[#F9FAFB] ">
-                <HostListingCard />
-              </div>
+              <HostListingCard />
               <div className="rounded-[24px] border-[1px] border-[#E5E7EB]">
                 <ReviewComponent />
               </div>
