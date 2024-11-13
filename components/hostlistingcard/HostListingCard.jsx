@@ -4,7 +4,7 @@ const HostListingCard = () => {
   return (
     <>
       <h2>My listings</h2>
-      <div className="grid grid-cols-2 gap-6 items-center p-7">
+      <div className="grid grid-cols-2 gap-6 items-center p-7 bg-[#F9FAFB]">
         {Array(4)
           .fill()
           .map((_, index) => (

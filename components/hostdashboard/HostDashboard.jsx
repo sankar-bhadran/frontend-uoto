@@ -19,7 +19,7 @@ const HostDashboard = () => {
               </div>
             </div>
             <div className=" flex flex-col gap-7">
-              <div className="rounded-[24px] border-[1px] border-[#E5E7EB] p-6">
+              <div className="rounded-[24px] border-[1px] border-[#E5E7EB] p-6 bg-[#F9FAFB] ">
                 <HostListingCard />
               </div>
               <div className="rounded-[24px] border-[1px] border-[#E5E7EB]">
