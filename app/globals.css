@@ -45,3 +45,34 @@
   font-size: 14px;
   line-height: 20px;
 }
+
+/* .ant-picker-panel.ant-picker-date-panel.ant-picker-body {
+  background-color: blue;
+} */
+
+.ant-picker-body {
+  padding: 10px;
+}
+
+.ant-picker-content,
+td {
+  border: 1px solid #e5e7eb;
+  border-collapse: collapse;
+}
+
+.ant-picker-content {
+  border: none;
+}
+tr {
+  color: #6b7280;
+}
+
+.ant-picker-calendar .ant-picker-cell {
+  padding: 12px 10px;
+}
+
+.ant-picker-content tr,
+th {
+  border: none;
+  padding: 10px;
+}
