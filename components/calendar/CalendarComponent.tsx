@@ -18,9 +18,36 @@ dayjs.updateLocale("en", {
   weekStart: 1,
 });
 
+type CalendarComponent = {
+  setMonthAndYear: () => void;
+};
+
 const CalendarComponent = forwardRef((props, ref) => {
+  const { setMonthAndYear } = props;
   const [currentDate, setCurrentDate] = useState<Dayjs>(dayjs());
-  console.log(currentDate);
+  const monthName = currentDate.format("MMMM");
+  const year = currentDate.format("YYYY");
+  const [datatosent, setDataToSent] = useState<{ month: string; year: string }>(
+    {
+      month: "",
+      year: "",
+    }
+  );
+  console.log(datatosent);
+  useEffect(() => {
+    setDataToSent({ month: monthName, year: year });
+  }, [currentDate]);
+
+  useEffect(() => {
+    if (datatosent.month && datatosent.year) {
+      sendMonthAndYear();
+    }
+  }, [datatosent]);
+
+  const sendMonthAndYear = () => {
+    console.log("inital render");
+    setMonthAndYear(datatosent);
+  };
 
   useImperativeHandle(ref, () => ({
     handleNextMonth: () => {
@@ -31,7 +58,7 @@ const CalendarComponent = forwardRef((props, ref) => {
     },
   }));
 
-  const day = ["M", "T", "W", "T", "F", "S", "S"];
+  const day = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   useEffect(() => {
     for (let i = 1; i < 8; i++) {
@@ -53,7 +80,6 @@ const CalendarComponent = forwardRef((props, ref) => {
       <ConfigProvider
         theme={{
           token: {
-            colorTextHeading: "red",
             colorText: "#1F2937",
             fontSize: 15,
             fontWeightStrong: 700,
@@ -70,6 +96,7 @@ const CalendarComponent = forwardRef((props, ref) => {
           onChange={(date) => setCurrentDate(date)}
         />
       </ConfigProvider>
+      {/* <button onClick={sendMonthAndYear}>Click</button> */}
     </div>
   );
 });

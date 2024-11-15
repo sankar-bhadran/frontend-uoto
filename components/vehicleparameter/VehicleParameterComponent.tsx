@@ -12,7 +12,8 @@ import checkCricleIcon from "../icons/Check circle.svg";
 import Image from "next/image";
 import Link from "next/link";
 import FullCalendar from "../calendarfullcomponent/FullCalendar";
-
+import PickupanddropoffComponent from "../pickupanddropoff/PickupanddropoffComponent";
+import TotalCardComponent from "../totalcard/TotalCardComponent";
 const VehcileParameterComponent = () => {
   const vehcileParameterData = [
     { image: fuelDispenserIcon, sentences: "59 MPG Combined, 58 City/60 Hwy" },
@@ -63,7 +64,7 @@ const VehcileParameterComponent = () => {
       <div className="container ">
         <div className="max-w-[80%] px-0 py-[51px] mx-auto mt-[60px] ">
           <div className="grid  grid-cols-[2.2fr,1.2fr] gap-[45px] p-3">
-            <div className="flex flex-col gap-[44px] p-1 ">
+            <div className="flex flex-col gap-[44px] p-1">
               <div className="rounded-[24px] border-[1px] border-[#E5E7EB] p-[32px] ">
                 <div className="flex flex-col gap-[32px]">
                   <div>
@@ -95,7 +96,7 @@ const VehcileParameterComponent = () => {
                     </div>
                   </div>
                   <div>
-                    <button className=" pt-[13px] pr-[25px] pb-[13px] pl-[25px] border-[#D1D5DB] rounded-[56px] border-2 text-base font-medium text-[#374151] ">
+                    <button className=" pt-[13px] pr-[25px] pb-[13px] pl-[25px] border-[#E5E7EB] rounded-[56px] border-2 text-base font-medium text-[#374151] ">
                       See all car utility
                     </button>
                   </div>
@@ -161,7 +162,11 @@ const VehcileParameterComponent = () => {
                 </div>
               </div>
             </div>
-            <FullCalendar />
+            <div className="p-1 flex flex-col gap-4">
+              <FullCalendar />
+              <PickupanddropoffComponent />
+              <TotalCardComponent />
+            </div>
           </div>
         </div>
       </div>
