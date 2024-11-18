@@ -11,18 +11,32 @@ import { Calendar, ConfigProvider } from "antd";
 import type { Dayjs } from "dayjs";
 import dayLocaleData from "dayjs/plugin/localeData";
 import updateLocale from "dayjs/plugin/updateLocale";
-
 dayjs.extend(dayLocaleData);
 dayjs.extend(updateLocale);
 dayjs.updateLocale("en", {
   weekStart: 1,
 });
 
+type CalendarData = {
+  month: string;
+  year: string;
+};
+
+type Props = {
+  setMonthAndYear: React.Dispatch<
+    React.SetStateAction<CalendarData | undefined>
+  >;
+};
 type CalendarComponent = {
   setMonthAndYear: () => void;
 };
 
-const CalendarComponent = forwardRef((props, ref) => {
+type Calendar = {
+  handlePrevMonth: () => void;
+  handleNextMonth: () => void;
+};
+
+const CalendarComponent = forwardRef<Calendar, Props>((props, ref) => {
   const { setMonthAndYear } = props;
   const [currentDate, setCurrentDate] = useState<Dayjs>(dayjs());
   const monthName = currentDate.format("MMMM");
@@ -33,10 +47,9 @@ const CalendarComponent = forwardRef((props, ref) => {
       year: "",
     }
   );
-  console.log(datatosent);
   useEffect(() => {
     setDataToSent({ month: monthName, year: year });
-  }, [currentDate]);
+  }, [currentDate, monthName, year]);
 
   useEffect(() => {
     if (datatosent.month && datatosent.year) {
@@ -45,7 +58,6 @@ const CalendarComponent = forwardRef((props, ref) => {
   }, [datatosent]);
 
   const sendMonthAndYear = () => {
-    console.log("inital render");
     setMonthAndYear(datatosent);
   };
 
@@ -89,7 +101,18 @@ const CalendarComponent = forwardRef((props, ref) => {
         <Calendar
           className="my-calendar"
           fullscreen={false}
-          headerRender={() => {
+          headerRender={({ value, type, onChange, onTypeChange }) => {
+            const start = 0;
+            const end = 12;
+            const monthOptions = [];
+            let current = value.clone();
+            const localeData = value.localeData();
+            const months = [];
+            for (let i = 0; i < 12; i++) {
+              current = current.month(i);
+              months.push(localeData.months(current));
+            }
+
             return <div style={{ padding: 8 }}></div>;
           }}
           value={currentDate}

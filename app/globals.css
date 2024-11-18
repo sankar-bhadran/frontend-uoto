@@ -77,8 +77,18 @@ th {
   padding: 10px;
 }
 
-.ant-steps-item-icon > .ant-steps-icon .ant-steps-icon-dot {
-  background-color: beige;
+.ant-steps.ant-steps-dot.ant-steps-small
+  .ant-steps-item-icon
+  .ant-steps-icon-dot {
+  border-style: solid;
+  border-color: #e71c3a;
+}
+
+.ant-steps.ant-steps-vertical.ant-steps-dot
+  .ant-steps-item
+  > .ant-steps-item-container
+  > .ant-steps-item-tail::after {
+  margin-inline-start: 5.3px;
 }
 
 .ant-steps.ant-steps-vertical
@@ -87,9 +97,14 @@ th {
   > .ant-steps-item-tail::after {
   height: 104%;
   width: 2px;
-  border: 2px dashed #6b7280;
+  /* border: 2px dashed #000309; */
 }
 
 .ant-steps.ant-steps-vertical > .ant-steps-item .ant-steps-item-content {
   min-height: 111px;
+}
+
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item {
+  padding: 7px 31px;
+  font-size: 18px;
 }
