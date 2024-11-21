@@ -3,6 +3,7 @@ import ProfileCard from "../../components/profilecard/ProfileCard";
 import HostListingCard from "../../components/hostlistingcard/HostListingCard";
 import ReviewComponent from "../../components/review/Reviews";
 import BookingHistoryComponent from "../../components/bookinghistory/BookingHistory";
+import Earnings from "./Earnings";
 
 const HostDashboard = () => {
   return (
@@ -16,6 +17,9 @@ const HostDashboard = () => {
               </div>
               <div className="rounded-[24px] border-[1px] border-[#E5E7EB]">
                 <BookingHistoryComponent />
+              </div>
+              <div className="rounded-[24px] border-[1px] border-[#E5E7EB]">
+                <Earnings />
               </div>
             </div>
             <div className=" flex flex-col gap-7">

@@ -1,43 +1,26 @@
 "use client";
-import React, {
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useState,
-} from "react";
+import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";
 import { Calendar, ConfigProvider } from "antd";
 import type { Dayjs } from "dayjs";
 import dayLocaleData from "dayjs/plugin/localeData";
 import updateLocale from "dayjs/plugin/updateLocale";
+import type { MenuProps } from "antd";
+import { Dropdown } from "antd";
 dayjs.extend(dayLocaleData);
 dayjs.extend(updateLocale);
 dayjs.updateLocale("en", {
   weekStart: 1,
 });
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
-type CalendarData = {
-  month: string;
-  year: string;
-};
+let itemsOne: MenuProps["items"] = [];
+let items: MenuProps["items"] = [];
 
-type Props = {
-  setMonthAndYear: React.Dispatch<
-    React.SetStateAction<CalendarData | undefined>
-  >;
-};
-type CalendarComponent = {
-  setMonthAndYear: () => void;
-};
+type DropdownClickHandler = (e: { key: string }) => void;
 
-type Calendar = {
-  handlePrevMonth: () => void;
-  handleNextMonth: () => void;
-};
-
-const CalendarComponent = forwardRef<Calendar, Props>((props, ref) => {
-  const { setMonthAndYear } = props;
+const CalendarComponent = () => {
   const [currentDate, setCurrentDate] = useState<Dayjs>(dayjs());
   const monthName = currentDate.format("MMMM");
   const year = currentDate.format("YYYY");
@@ -47,29 +30,10 @@ const CalendarComponent = forwardRef<Calendar, Props>((props, ref) => {
       year: "",
     }
   );
-  useEffect(() => {
-    setDataToSent({ month: monthName, year: year });
-  }, [currentDate, monthName, year]);
 
   useEffect(() => {
-    if (datatosent.month && datatosent.year) {
-      sendMonthAndYear();
-    }
-  }, [datatosent]);
-
-  const sendMonthAndYear = () => {
-    setMonthAndYear(datatosent);
-  };
-
-  useImperativeHandle(ref, () => ({
-    handleNextMonth: () => {
-      setCurrentDate((prev) => prev.add(1, "month"));
-    },
-    handlePrevMonth: () => {
-      setCurrentDate((prev) => prev.subtract(1, "month"));
-    },
-  }));
-
+    setDataToSent({ ...datatosent, month: monthName, year: year });
+  }, [currentDate]);
   const day = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   useEffect(() => {
@@ -83,47 +47,118 @@ const CalendarComponent = forwardRef<Calendar, Props>((props, ref) => {
     }
   }, []);
 
+  const handlePrevMonth = () => {
+    setCurrentDate((prev) => prev.subtract(1, "month"));
+  };
+
+  const handleNextMonth = () => {
+    setCurrentDate((prev) => prev.add(1, "month"));
+  };
+
+  const handleDropdownItemClickYear: DropdownClickHandler = (e) => {
+    console.log(typeof e.key);
+    const newYear = currentDate.year(Number(e.key));
+    setCurrentDate(newYear);
+  };
+
+  const handleDropdownItemClickMonth: DropdownClickHandler = (e) => {
+    const newMonth = currentDate.month(Number(e.key));
+    setCurrentDate(newMonth);
+  };
+
   const wrapperStyle: React.CSSProperties = {
     width: "95%",
   };
 
   return (
-    <div style={wrapperStyle}>
-      <ConfigProvider
-        theme={{
-          token: {
-            colorText: "#1F2937",
-            fontSize: 15,
-            fontWeightStrong: 700,
-          },
-        }}
-      >
-        <Calendar
-          className="my-calendar"
-          fullscreen={false}
-          headerRender={({ value, type, onChange, onTypeChange }) => {
-            const start = 0;
-            const end = 12;
-            const monthOptions = [];
-            let current = value.clone();
-            const localeData = value.localeData();
-            const months = [];
-            for (let i = 0; i < 12; i++) {
-              current = current.month(i);
-              months.push(localeData.months(current));
-            }
+    <>
+      <div className="flex flex-col">
+        <div className="flex justify-between items-center gap-[20px] ">
+          <button onClick={handlePrevMonth}>
+            <LeftOutlined
+              style={{
+                color: "#E71C3A",
+                fontSize: "22px",
+              }}
+            />
+          </button>
+          <p className="text-[#000000] font-extrabold text-[25.36px] leading-[35.96px] cursor-pointer">
+            <Dropdown
+              menu={{ items: itemsOne, onClick: handleDropdownItemClickMonth }}
+              trigger={["click"]}
+            >
+              <a onClick={(e) => e.preventDefault()} className=" ml-2">
+                {monthName}
+              </a>
+            </Dropdown>
+            <Dropdown
+              menu={{ items, onClick: handleDropdownItemClickYear }}
+              trigger={["click"]}
+            >
+              <a onClick={(e) => e.preventDefault()} className=" ml-2">
+                {year}
+              </a>
+            </Dropdown>
+            {/* {monthName} {year} */}
+            <RightOutlined
+              style={{
+                color: "#E71C3A",
+                fontSize: "22px",
+              }}
+            />
+          </p>
+          <button onClick={handleNextMonth}>
+            <RightOutlined
+              style={{
+                color: "#E71C3A",
+                fontSize: "22px",
+              }}
+            />
+          </button>
+        </div>
+        <div style={wrapperStyle}>
+          <ConfigProvider
+            theme={{
+              token: {
+                colorText: "#1F2937",
+                fontSize: 15,
+                fontWeightStrong: 700,
+              },
+            }}
+          >
+            <Calendar
+              className="my-calendar"
+              fullscreen={false}
+              headerRender={({ value }) => {
+                const start = 0;
+                const end = 12;
+                let current = value.clone();
+                const localeData = value.localeData();
+                const months = [];
+                for (let i = 0; i < 12; i++) {
+                  current = current.month(i);
+                  months.push(localeData.months(current));
+                }
+                itemsOne = [];
+                for (let i = start; i < end; i++) {
+                  itemsOne.push({ label: months[i], key: i });
+                }
 
-            return <div style={{ padding: 8 }}></div>;
-          }}
-          value={currentDate}
-          onChange={(date) => setCurrentDate(date)}
-        />
-      </ConfigProvider>
-      {/* <button onClick={sendMonthAndYear}>Click</button> */}
-    </div>
+                items = [];
+                const year = value.year();
+                for (let i = year - 5; i < year + 5; i += 1) {
+                  items.push({ label: i, key: i });
+                }
+                return <div style={{ padding: 8 }}></div>;
+              }}
+              value={currentDate}
+              onChange={(date) => setCurrentDate(date)}
+            />
+          </ConfigProvider>
+        </div>
+      </div>
+    </>
   );
-});
-
-CalendarComponent.displayName = "CalendarComponent";
+};
 
 export default CalendarComponent;

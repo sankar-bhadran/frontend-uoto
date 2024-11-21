@@ -105,6 +105,43 @@ th {
 }
 
 .ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item {
-  padding: 7px 31px;
-  font-size: 18px;
+  padding: 5.54px 22.18px 5.54px 22.18px;
+  font-size: 19.41px;
+  line-height: 33.27px;
+}
+
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item:hover {
+  background-color: #e71c3a;
+  color: #ffff;
+}
+
+.no-scroll-dropdown .ant-select-dropdown {
+  overflow-y: hidden !important;
+  max-height: none !important;
+}
+
+/* .ant-select-single .ant-select-selector { */
+/* font-size: 16px; */
+/* line-height: 16; */
+/* font-weight: bold; */
+/* margin-left: 11px; */
+/* } */
+
+.ant-select .ant-select-selection-item {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16;
+}
+
+.ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector {
+  border: none;
+  background-color: inherit;
+}
+
+.datePicker {
+  visibility: hidden;
+  height: 0;
+  padding: 0;
+  width: 0;
+  position: absolute;
 }
