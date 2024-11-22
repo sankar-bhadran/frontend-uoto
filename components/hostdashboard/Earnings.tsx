@@ -5,28 +5,36 @@ import Image from "next/image";
 import { DatePicker } from "antd";
 import type { Dayjs } from "dayjs";
 import dayjs from "dayjs";
-
 const { RangePicker } = DatePicker;
 
 const Earnings = () => {
   const [datePickerOpen, setDatePickerOpen] = useState(false);
-  const [selectedDate, setSelectedDate] = useState<string>("Choose Date");
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
+  const [dates, setDates] = useState<[Dayjs, Dayjs]>([dayjs(), dayjs()]);
+  const [startDate, setStartDate] = useState(dayjs().format("DD-MM-YYYY"));
+  const [endDate, setEndDate] = useState(dayjs().format("DD-MM-YYYY"));
 
-  const handleDateChange: DatePickerProps["onChange"] = (date, dateString) => {
-    console.log(date);
+  const handleDateChange = (
+    date: [Dayjs, Dayjs] | null,
+    dateString: [string, string]
+  ) => {
     if (date) {
-      const startDate = date[0].format("DD-MM-YYY");
-      setStartDate(startDate);
-      const endDate = date[1].format("DD-MM-YYYY");
-      setEndDate(endDate);
+      setStartDate(date[0].format("DD-MM-YYYY"));
+      setEndDate(date[1].format("DD-MM-YYYY"));
+      setDates(date);
     } else {
-      setSelectedDate("");
+      setStartDate("");
+      setEndDate("");
     }
-    console.log(startDate);
-    console.log(endDate);
   };
+
+  console.log(dates);
+  console.log(startDate);
+  console.log(endDate);
+
+  const handleOpenChange = (open: boolean) => {
+    setDatePickerOpen(open);
+  };
+
   const options = [
     { value: "jack", label: "Today" },
     { value: "lucy", label: "Last 7 days" },
@@ -77,25 +85,32 @@ const Earnings = () => {
             </ConfigProvider>
 
             <span className="p-1 font-semibold text-base flex items-center justify-center space-x-2">
-              <button
-                className="cursor-pointer"
-                onClick={() => setDatePickerOpen(true)}
-              >
-                <Image
-                  src={calendarIcon}
-                  width={17.25}
-                  height={17.25}
-                  alt="menuIcon"
-                />
-                <RangePicker
-                  className="datePicker"
-                  open={datePickerOpen}
-                  onOpenChange={setDatePickerOpen}
-                  onChange={handleDateChange}
-                />
-              </button>
+              <div>
+                <button
+                  className="cursor-pointer"
+                  onClick={() => setDatePickerOpen(!datePickerOpen)}
+                >
+                  <Image
+                    src={calendarIcon}
+                    width={17.25}
+                    height={17.25}
+                    alt="menuIcon"
+                  />
+                </button>
+                <ConfigProvider>
+                  <RangePicker
+                    className="datePicker"
+                    open={datePickerOpen}
+                    onOpenChange={handleOpenChange}
+                    value={dates}
+                    onChange={handleDateChange}
+                    format="DD-MM-YYYY"
+                  />
+                </ConfigProvider>
+                {/* <DatePicker.RangePicker /> */}
+              </div>
 
-              <span className="pr-1">{selectedDate}</span>
+              {/* <span className="pr-1">{selectedDate}</span> */}
             </span>
           </div>
         </div>

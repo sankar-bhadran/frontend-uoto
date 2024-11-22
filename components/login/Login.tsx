@@ -32,13 +32,13 @@ const Login = () => {
                 <h2 className="text-base font-medium ">
                   Continue with Facebook
                 </h2>
-                <div className="hidden bg-red-500 sm:block">
+                <div className="hidden  sm:block">
                   <h1></h1>
                 </div>
               </Link>
               <Link
                 href=""
-                className="flex justify-start items-center w-[100%] pt-[12px] pr-[24px] pb-[12px] pl-[24px] sm:gap-[10px] gap-7 sm:justify-evenly"
+                className="flex justify-start items-center w-[100%] pt-[12px] pr-[24px] pb-[12px] pl-[24px] sm:gap-[10px] gap-7 sm:justify-evenly bg-[#Efce]"
               >
                 <Image
                   src={googleIcon}
@@ -47,7 +47,7 @@ const Login = () => {
                   alt="menuIcon"
                 />
                 <h2 className="text-base font-medium"> Continue with Google</h2>
-                <div className="hidden bg-red-500 sm:block">
+                <div className="hidden  sm:block">
                   <h1></h1>
                 </div>
               </Link>
@@ -62,13 +62,19 @@ const Login = () => {
                   alt="menuIcon"
                 />
                 <h2 className="text-base font-medium">Continue with Twitter</h2>
-                <div className="hidden bg-red-500 sm:block">
+                <div className="hidden sm:block">
                   <h1></h1>
                 </div>
               </Link>
             </div>
-            <div className="text-center text-base font-medium">OR</div>
-            <div className="flex flex-col gap-4  mobileview:p-5">
+            <div className="text-center text-base font-medium ">
+              <div className="relative flex py-5 items-center">
+                <div className="flex-grow border-t border-[#E5E7EB]"></div>
+                <span className="flex-shrink mx-4 text-[#374151]">OR</span>
+                <div className="flex-grow border-t border-[#E5E7EB]"></div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-4 mobileview:p-5">
               <Form form={form} name="signin" layout="vertical">
                 <Form.Item
                   label="Email"

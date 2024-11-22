@@ -145,3 +145,10 @@ th {
   width: 0;
   position: absolute;
 }
+
+.ant-rate {
+  font-size: 15px;
+  width: 100%;
+  margin: 27px;
+  margin-top: 0px;
+}

@@ -1,9 +1,10 @@
 import React from "react";
-import { Avatar } from "antd";
-import { UserOutlined } from "@ant-design/icons";
 import { Flex, Rate } from "antd";
 import { useState } from "react";
-const desc = ["terrible", "bad", "normal", "good", "wonderful"];
+import Image from "next/image";
+import ReviewsPic from "../../public/hostprofile/Mercedes G wagon.png";
+import ReviewerPic from "../../public/hostprofile/Circular.png";
+const desc = ["terrible", "bad"];
 
 const Reviews = () => {
   const [value, setValue] = useState(4);
@@ -14,41 +15,56 @@ const Reviews = () => {
         <h1 className="font-semibold text-2xl text-[#111827]">
           Reviews (23 reviews)
         </h1>
-        <div className="flex flex-col gap-9">
-          {Array(3)
-            .fill()
-            .map((_, index) => (
-              <div className="flex flex-col gap-2" key={index}>
-                <div className="flex justify-between">
-                  <div className="flex gap-5">
-                    <Avatar size="large" icon={<UserOutlined />} />
-                    <span>
-                      <h3 className="font-medium text-sm text-[#111827]">
-                        Cody Fisher{" "}
-                      </h3>
-                      <h3 className="font-normal text-xs text-[#6B7280]">
-                        May 20, 2021
-                      </h3>
-                    </span>
-                  </div>
-                  <div>
-                    <Flex gap="middle" vertical>
-                      <Rate tooltips={desc} onChange={setValue} value={value} />
-                      {/* {value ? <span>{desc[value - 1]}</span> : null} */}
-                    </Flex>
-                  </div>
+
+        {Array(3)
+          .fill()
+          .map((_, index) => (
+            <div className="flex justify-center gap-3" key={index}>
+              <div>
+                <Image
+                  src={ReviewerPic}
+                  width={40}
+                  height={40}
+                  alt="menuIcon"
+                  style={{ borderRadius: "20px" }}
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <div>
+                  <h2 className="text-sm font-medium text-[#111827]">
+                    Cody Fisher
+                  </h2>
+                  <p className="text-xs font-normal">May 20, 2021</p>
                 </div>
-                <div className="justify-center items-center flex  w-[95%]">
-                  <span className="text-base font-normal text-[#6B7280]">
+                <div>
+                  <h3 className="text-xs font-normal text-[#111827]">
+                    KONA Electric
+                  </h3>
+                  <p className="text-base font-normal text-[#4B5563]">
                     Great car, not a single problem during our rental! Plenty of
-                    space for our <br /> entire families bags.
-                  </span>
+                    space for our entire families bags.
+                  </p>
                 </div>
               </div>
-            ))}
-        </div>
-        <button className=" w-[30%] pt-[13px] pr-[25px] pb-[13px] pl-[23px] text-nowrap border-[#D1D5DB] rounded-[56px] border-2 text-base font-medium text-[#374151] ">
-          View more 20 review
+              <Image
+                src={ReviewsPic}
+                width={96}
+                alt="menuIcon"
+                style={{
+                  borderRadius: "10.67px",
+                  height: "90px",
+                  marginRight: "",
+                }}
+              />
+              <Flex gap="middle" vertical>
+                <Rate tooltips={desc} onChange={setValue} value={value} />
+                {/* {value ? <span>{desc[value - 1]}</span> : null} */}
+              </Flex>
+            </div>
+          ))}
+
+        <button className=" w-[20%] pt-[13px] pr-[25px] pb-[13px] pl-[23px] text-nowrap border-[#D1D5DB] rounded-[56px] border-2 text-base font-medium text-[#374151] ">
+          View more
         </button>
       </div>
     </>
