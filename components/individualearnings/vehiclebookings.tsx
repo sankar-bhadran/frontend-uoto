@@ -63,7 +63,7 @@ const vehiclebookings = () => {
             ))}
           <div className="flex justify-center">
             <button className=" w-[20%] pt-[13px] pr-[25px] pb-[13px] pl-[23px] text-nowrap border-[#D1D5DB] rounded-[56px] border-2 text-base font-medium text-[#374151] ">
-              View more
+              See more
             </button>
           </div>
         </div>

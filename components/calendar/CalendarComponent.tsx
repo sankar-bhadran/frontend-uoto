@@ -14,6 +14,7 @@ dayjs.updateLocale("en", {
   weekStart: 1,
 });
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import "../../styles/component/calendardropdown.css";
 
 let itemsOne: MenuProps["items"] = [];
 let items: MenuProps["items"] = [];
@@ -56,12 +57,13 @@ const CalendarComponent = () => {
   };
 
   const handleDropdownItemClickYear: DropdownClickHandler = (e) => {
-    console.log(typeof e.key);
+    console.log(e.key);
     const newYear = currentDate.year(Number(e.key));
     setCurrentDate(newYear);
   };
 
   const handleDropdownItemClickMonth: DropdownClickHandler = (e) => {
+    console.log(e.key);
     const newMonth = currentDate.month(Number(e.key));
     setCurrentDate(newMonth);
   };
@@ -82,7 +84,7 @@ const CalendarComponent = () => {
               }}
             />
           </button>
-          <p className="text-[#000000] font-extrabold text-[25.36px] leading-[35.96px] cursor-pointer">
+          <p className="text-[#000000] font-extrabold text-[25.36px] leading-[35.96px] cursor-pointer calendar-dropdown">
             <Dropdown
               menu={{ items: itemsOne, onClick: handleDropdownItemClickMonth }}
               trigger={["click"]}

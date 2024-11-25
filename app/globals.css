@@ -108,6 +108,7 @@ th {
   padding: 5.54px 22.18px 5.54px 22.18px;
   font-size: 19.41px;
   line-height: 33.27px;
+  min-width: 150px;
 }
 
 .ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item:hover {
@@ -151,4 +152,9 @@ th {
   width: 100%;
   margin: 27px;
   margin-top: 0px;
+}
+
+.dropdown-divider {
+  margin: 8px 0;
+  border-color: #bdbdbd;
 }
