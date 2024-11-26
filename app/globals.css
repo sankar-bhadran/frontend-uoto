@@ -128,6 +128,11 @@ th {
 /* margin-left: 11px; */
 /* } */
 
+.ant-select {
+  margin-left: 4px;
+  margin: 3px;
+}
+
 .ant-select .ant-select-selection-item {
   font-weight: 600;
   font-size: 16px;
@@ -148,13 +153,34 @@ th {
 }
 
 .ant-rate {
-  font-size: 15px;
   width: 100%;
-  margin: 27px;
-  margin-top: 0px;
+  display: flex;
 }
 
 .dropdown-divider {
   margin: 8px 0;
   border-color: #bdbdbd;
+}
+
+.ant-picker {
+  margin: 0px;
+  font-size: 17.25px;
+  padding: 4px 6px;
+}
+
+.ant-picker-range .ant-picker-range-separator {
+  padding: 0px 8px;
+}
+
+.ant-picker-outlined {
+  background-color: inherit;
+  border-width: none;
+  border-style: none;
+}
+
+.ant-picker .ant-picker-input span.ant-picker-suffix,
+.ant-picker.ant-picker-range span.ant-picker-suffix {
+  margin-left: 1px;
+  margin-right: 10px;
+  order: -1;
 }

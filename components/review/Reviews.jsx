@@ -57,7 +57,14 @@ const Reviews = () => {
                 }}
               />
               <Flex gap="middle" vertical>
-                <Rate tooltips={desc} onChange={setValue} value={value} />
+                <Rate
+                  tooltips={desc}
+                  onChange={setValue}
+                  value={value}
+                  defaultValue={5}
+                  count={4}
+                  style={{ fontSize: 12 }}
+                />
                 {/* {value ? <span>{desc[value - 1]}</span> : null} */}
               </Flex>
             </div>

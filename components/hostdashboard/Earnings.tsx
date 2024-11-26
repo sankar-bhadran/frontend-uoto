@@ -9,29 +9,32 @@ const { RangePicker } = DatePicker;
 
 const Earnings = () => {
   const [datePickerOpen, setDatePickerOpen] = useState(false);
-  const [dates, setDates] = useState<[Dayjs, Dayjs]>([dayjs(), dayjs()]);
-  const [startDate, setStartDate] = useState(dayjs().format("DD-MM-YYYY"));
-  const [endDate, setEndDate] = useState(dayjs().format("DD-MM-YYYY"));
+  const [dates, setDates] = useState<[Dayjs, Dayjs] | null>(null);
+  const [formattedRange, setFormattedRange] = useState<string>("");
 
   const handleDateChange = (
     date: [Dayjs, Dayjs] | null,
     dateString: [string, string]
   ) => {
+    console.log(`date =>>>${date}`);
     if (date) {
-      setStartDate(date[0].format("DD-MM-YYYY"));
-      setEndDate(date[1].format("DD-MM-YYYY"));
+      // Format the start and end date to match 'Jan 1, 2025 - Dec 16'
+      const formattedStartDate = date[0].format("MMM D, YYYY");
+      const formattedEndDate = date[1].format("MMM D");
+
+      console.log(formattedStartDate);
+      console.log(formattedEndDate);
+      setFormattedRange(`${formattedStartDate} - ${formattedEndDate}`);
       setDates(date);
     } else {
-      setStartDate("");
-      setEndDate("");
+      setFormattedRange("");
+      setDates(null);
     }
   };
-
-  console.log(dates);
-  console.log(startDate);
-  console.log(endDate);
+  console.log(formattedRange);
 
   const handleOpenChange = (open: boolean) => {
+    console.log(open);
     setDatePickerOpen(open);
   };
 
@@ -56,10 +59,7 @@ const Earnings = () => {
       <div className="flex flex-col  p-[32px] gap-[14px]">
         <h1 className="font-semibold text-3xl text-center">Earnings</h1>
         <div className="flex justify-center">
-          <div
-            className="grid grid-cols-2 divide-x rounded-[6px] border-[2px] border-[#E5E7EB] divide-[#E5E7EB]"
-            // style={{ display: "inline-block", width: "auto" }}
-          >
+          <div className="grid grid-cols-3 divide-x rounded-[6px] border-[2px] border-[#E5E7EB] divide-[#E5E7EB] ">
             <ConfigProvider
               theme={{
                 components: {
@@ -77,40 +77,25 @@ const Earnings = () => {
               <Select
                 className="no-scroll-dropdown"
                 defaultValue="All Time"
-                style={{ width: 150 }}
+                style={{ width: "auto" }} // Set auto width to make it smaller
                 onChange={handleChange}
                 listHeight={500}
                 options={options}
               />
             </ConfigProvider>
 
-            <span className="p-1 font-semibold text-base flex items-center justify-center space-x-2">
+            <span className="p-1 font-semibold text-base flex items-center justify-center space-x-2 col-span-2">
               <div>
-                <button
-                  className="cursor-pointer"
-                  onClick={() => setDatePickerOpen(!datePickerOpen)}
-                >
-                  <Image
-                    src={calendarIcon}
-                    width={17.25}
-                    height={17.25}
-                    alt="menuIcon"
-                  />
-                </button>
                 <ConfigProvider>
                   <RangePicker
-                    className="datePicker"
                     open={datePickerOpen}
                     onOpenChange={handleOpenChange}
-                    value={dates}
                     onChange={handleDateChange}
-                    format="DD-MM-YYYY"
+                    format="MMM D,YYYY"
+                    className="cursor-pointer"
                   />
                 </ConfigProvider>
-                {/* <DatePicker.RangePicker /> */}
               </div>
-
-              {/* <span className="pr-1">{selectedDate}</span> */}
             </span>
           </div>
         </div>

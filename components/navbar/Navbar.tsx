@@ -19,7 +19,6 @@ const listItems = [
 
 const Navbar = () => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
-  const [isMouseOverDropdown, setIsMouseOverDropdown] = useState(false);
 
   console.log(isDropdownVisible);
 

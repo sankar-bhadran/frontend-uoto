@@ -14,7 +14,6 @@ dayjs.updateLocale("en", {
   weekStart: 1,
 });
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import "../../styles/component/calendardropdown.css";
 
 let itemsOne: MenuProps["items"] = [];
 let items: MenuProps["items"] = [];
