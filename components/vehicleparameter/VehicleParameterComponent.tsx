@@ -147,7 +147,7 @@ const VehcileParameterComponent = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-[20px]">
                   {includedData.map((value, index) => (
-                    <div className="flex items-center gap-[20px]" key={index}>
+                    <div className="flex items-center gap-[25px]" key={index}>
                       <Image
                         src={value.image}
                         width={24}

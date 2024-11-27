@@ -1,29 +1,24 @@
 import { ConfigProvider, Select } from "antd";
 import React, { useState } from "react";
-import calendarIcon from "../icons/calendaricon.svg";
-import Image from "next/image";
 import { DatePicker } from "antd";
 import type { Dayjs } from "dayjs";
-import dayjs from "dayjs";
+// import dayjs from "dayjs";
 const { RangePicker } = DatePicker;
+
+type handleDateChange = (
+  date: [Dayjs, Dayjs] | null,
+  dateString: [string, string]
+) => void;
 
 const Earnings = () => {
   const [datePickerOpen, setDatePickerOpen] = useState(false);
   const [dates, setDates] = useState<[Dayjs, Dayjs] | null>(null);
   const [formattedRange, setFormattedRange] = useState<string>("");
 
-  const handleDateChange = (
-    date: [Dayjs, Dayjs] | null,
-    dateString: [string, string]
-  ) => {
-    console.log(`date =>>>${date}`);
+  const handleDateChange: handleDateChange = (date) => {
     if (date) {
-      // Format the start and end date to match 'Jan 1, 2025 - Dec 16'
       const formattedStartDate = date[0].format("MMM D, YYYY");
       const formattedEndDate = date[1].format("MMM D");
-
-      console.log(formattedStartDate);
-      console.log(formattedEndDate);
       setFormattedRange(`${formattedStartDate} - ${formattedEndDate}`);
       setDates(date);
     } else {
@@ -31,10 +26,8 @@ const Earnings = () => {
       setDates(null);
     }
   };
-  console.log(formattedRange);
 
   const handleOpenChange = (open: boolean) => {
-    console.log(open);
     setDatePickerOpen(open);
   };
 
@@ -77,7 +70,7 @@ const Earnings = () => {
               <Select
                 className="no-scroll-dropdown"
                 defaultValue="All Time"
-                style={{ width: "auto" }} // Set auto width to make it smaller
+                style={{ width: "auto" }}
                 onChange={handleChange}
                 listHeight={500}
                 options={options}

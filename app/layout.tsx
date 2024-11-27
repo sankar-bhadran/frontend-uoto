@@ -1,8 +1,8 @@
 import "antd/dist/reset.css";
 import "./globals.css";
+// import { AntdRegistry } from "@ant-design/nextjs-registry";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
-// import { AntdRegistry } from "@ant-design/nextjs-registry";
 
 export default function RootLayout({
   children,

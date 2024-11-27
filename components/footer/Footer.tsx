@@ -8,10 +8,10 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <div className="contianer">
-        <div className="w-[100%] sm:pt-[112px] sm:pb-[112px] sm:flex sm:justify-center p-9 ">
+      <div className="contianer ">
+        <div className="w-[100%] sm:pt-[112px] sm:pb-[112px] sm:flex sm:justify-center p-5 border-t-2 border-[#E5E7EB] mt-20  ">
           <div className="w-[80%]">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-[40px] pt-[112px] pb-[112px]  ">
+            <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-[40px] pt-[100px] pb-[100px]">
               <div className=" flex flex-col gap-[16px]">
                 <Image src={uotoLog} width={97.63} height={32} alt="uotolog" />
                 <Link href="/" className="flex items-center gap-[8px]">
